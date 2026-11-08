@@ -20,8 +20,6 @@ import numpy as np
 
 warnings.filterwarnings('ignore')
 
-# Fixed DLF auxiliary objective.  These values define the method and
-# are deliberately not command-line hyperparameters.
 DLF_FREQ_LOSS_WEIGHT = 1e-4
 DLF_FREQ_MASK_LOSS_WEIGHT = 1e-4
 DLF_FUTURE_LOSS_WEIGHT = 1e-3
@@ -54,9 +52,6 @@ class Exp_Main(Exp_Basic):
                 self.args.data = "ETTh2"
                 self.args.data_path = "ETTh2.csv"
 
-            # elif "ETTh2" in self.args.data or "Electricity" in self.args.model_id:
-            #     self.args.data = "ETTh1"
-            #     self.args.data_path = "ETTh1.csv"
 
             elif  "Electricity" in self.args.model_id:
                 self.args.data = "ETTh2"
@@ -210,8 +205,7 @@ class Exp_Main(Exp_Basic):
                                     F.smooth_l1_loss(pred_spec.imag / scale, true_spec.imag / scale)
                         loss = loss + DLF_FREQ_LOSS_WEIGHT * loss_spec
 
-                        # A small, gradually introduced phase-aware consistency term
-                        # stabilizes the two forecasting latents without dominating MSE.
+        
                         train_loss.append(loss.item())
                 else:
                     outputs = self.model(batch_x)

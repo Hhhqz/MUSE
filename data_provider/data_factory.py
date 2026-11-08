@@ -20,9 +20,7 @@ def data_provider(args, flag):
         batch_size = args.batch_size
         freq = args.freq
     elif flag == 'val':
-        # Custom datasets can have fewer validation windows than one training
-        # batch at long horizons (e.g. Exchange, pred_len=720).  Dropping that
-        # partial batch leaves an empty loader and produces NaN validation loss.
+        
         shuffle_flag = False
         drop_last = False
         batch_size = args.batch_size
