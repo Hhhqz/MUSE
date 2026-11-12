@@ -10,7 +10,7 @@ We implement MUSE with PyTorch and configure the hyperparameters to ensure a fai
 Statistical significance validation of MSE performance between MUSE (Full) and ablation variants across five matched random seeds (2023–2027). Metrics are reported as mean ± std, with p-values computed with paired two-tailed t-tests.
 
 <p align="center">
-  <img src="p_test.png" alt="Statistical Significance" width="1000"/>
+  <img src="Statistical Significance.png" alt="Statistical Significance" width="1000"/>
 </p>
 
 
